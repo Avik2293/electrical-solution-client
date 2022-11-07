@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import ErrorPage from "../Components/ErrorPage";
 import Home from "../Pages/Home";
+import Blog from "../Pages/Blog";
 
 export const routes = createBrowserRouter([
     {
@@ -26,10 +27,10 @@ export const routes = createBrowserRouter([
             //     path: '/faq',
             //     element: <Faq></Faq>
             // },
-            // {
-            //     path: '/blog',
-            //     element: <Blog></Blog>
-            // },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
             // {
             //     path: '/login',
             //     element: <Login></Login>
