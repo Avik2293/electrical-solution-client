@@ -14,7 +14,7 @@ const Home = () => {
                     <div className="max-w-md">
                         <h1 className="mb-5 text-3xl font-bold">Hello There...</h1>
                         <p className="mb-5">Since 2016, I am working in Electrical Industry. I have been working with many client till now, and i always try my best to satisfy each customer. If you need any type of query about this field, feel free to contact with me. Look around my services and choose which one you want.</p>
-                        <button className="btn btn-primary"><Link to={'/services'}>Find Our Services</Link></button>
+                        <button className="btn btn-primary"><Link to={'/services'}>Find my Services</Link></button>
                     </div>
                 </div>
             </div>

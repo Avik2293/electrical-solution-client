@@ -2,20 +2,19 @@
 import logoNew from '../../Assets/logoNew.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useState } from 'react';
-// import { FaUser } from 'react-icons/fa';
-// import { useContext } from 'react';
-// import { AuthContext } from '../../Context/AuthProvider';
+import { FaUser } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
 
 
 const Header = () => {
-    // const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    // const handleLogOut = () => {
-    //     logOut()
-    //     .then( () => {})
-    //     .catch( error => console.error(error))
-    // };
+    const handleLogOut = () => {
+        logOut()
+        .then( () => {})
+        .catch( error => console.error(error))
+    };
 
     return (
         <div>
@@ -41,23 +40,23 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {/* <div>
-                    {user?.photoURL ?
-                        <div className="avatar tooltip tooltip-bottom" data-tip={user.displayName}>
-                            <div className="w-12 mask mask-hexagon">
-                                <button><img src={user.photoURL} alt="" />
-                                </button>
-                            </div>
-                        </div> :
-                        <FaUser></FaUser>
-                    }
-                    </div> */}
-                    {/* <div className='w-12 md:w-24'>
-                        {
-                        user?.uid ? <Link onClick={handleLogOut} className="btn">Log Out</Link> :
-                            <Link className="btn" to='/login'>Log In</Link>
+                    <div>
+                        {user?.photoURL ?
+                            <div className="avatar tooltip tooltip-bottom" data-tip={user.displayName}>
+                                <div className="w-12 mask mask-hexagon">
+                                    <button><img src={user.photoURL} alt="" />
+                                    </button>
+                                </div>
+                            </div> :
+                            <FaUser></FaUser>
                         }
-                    </div> */}
+                    </div>
+                    <div className='w-12 md:w-24'>
+                        {
+                            user?.uid ? <Link onClick={handleLogOut} className="btn">Log Out</Link> :
+                                <Link className="btn" to='/login'>Log In</Link>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

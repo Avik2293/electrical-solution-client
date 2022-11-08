@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import ErrorPage from "../Components/ErrorPage";
+import Login from "../Components/Login";
+import Register from "../Components/Register";
 import Home from "../Pages/Home";
 import Blog from "../Pages/Blog";
 import Services from "../Pages/Services";
@@ -34,14 +36,14 @@ export const routes = createBrowserRouter([
                 path: '/blog',
                 element: <Blog></Blog>
             },
-            // {
-            //     path: '/login',
-            //     element: <Login></Login>
-            // },
-            // {
-            //     path: '/register',
-            //     element: <Register></Register>
-            // },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
+            },
             // {
             //     path: '/checkout/:id',
             //     element: <PrivateRoute><CheckOutPage></CheckOutPage></PrivateRoute>,
