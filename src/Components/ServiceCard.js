@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 
 const ServiceCard = ({service}) => {
-    const {title, price, img_url, description, _id, ratings} = service;
+    const {title, price, img_url, description, ratings} = service;
     const shortDescription = description.slice(0, 100)
 
     return (
