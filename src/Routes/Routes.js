@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import ErrorPage from "../Components/ErrorPage";
 import Home from "../Pages/Home";
 import Blog from "../Pages/Blog";
+import Services from "../Pages/Services";
 
 export const routes = createBrowserRouter([
     {
@@ -14,10 +15,11 @@ export const routes = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             },
-            // {
-            //     path: '/courses',
-            //     element: <Courses></Courses>
-            // },
+            {
+                path: '/services',
+                loader: () => fetch('http://localhost:5000/services'),
+                element: <Services></Services>
+            },
             // {
             //     path: '/course/:id',
             //     element: <Course></Course>,

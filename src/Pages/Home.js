@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import bg from '../Assets/home_bg.jpg';
+// import bg from '../Assets/home_bg.jpg';
 
 const Home = () => {
     return (
-        <div className="hero min-h-screen" style={{ backgroundImage: `url(${bg})` }}>
+        <div className="hero min-h-screen">
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
