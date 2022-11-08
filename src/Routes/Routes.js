@@ -6,6 +6,7 @@ import Register from "../Components/Register";
 import Home from "../Pages/Home";
 import Blog from "../Pages/Blog";
 import Services from "../Pages/Services";
+import ServiceDetails from "../Pages/ServiceDetails";
 
 export const routes = createBrowserRouter([
     {
@@ -24,10 +25,14 @@ export const routes = createBrowserRouter([
                 element: <Services></Services>
             },
             // {
-            //     path: '/course/:id',
-            //     element: <Course></Course>,
-            //     loader: ({params}) => fetch(`https://electro-man-server.vercel.app/course/${params.id}`)
+            //     path: '/service',
+            //     element: <ServiceDetails></ServiceDetails>
             // },
+            {
+                path: '/service/:id',
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+            },
             // {
             //     path: '/faq',
             //     element: <Faq></Faq>
