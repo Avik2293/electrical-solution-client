@@ -42,9 +42,9 @@ const Header = () => {
                 <div className="navbar-end">
                     <div>
                         {user?.photoURL ?
-                            <div className="avatar tooltip tooltip-bottom" data-tip={user.displayName}>
+                            <div className="avatar tooltip tooltip-bottom" data-tip={user?.displayName}>
                                 <div className="w-12 mask mask-hexagon">
-                                    <button><img src={user.photoURL} alt="" />
+                                    <button><img src={user?.photoURL} alt="" />
                                     </button>
                                 </div>
                             </div> :
