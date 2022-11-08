@@ -12,7 +12,11 @@ const ServiceCard = ({ service }) => {
     return (
         <div className="card card-compact w-80 bg-base-100 shadow-xl border border-slate-700">
             <figure>
-                
+                <PhotoProvider>
+                    <PhotoView src={img_url}>
+                        <button><img src={img_url} alt="" /></button>
+                    </PhotoView>
+                </PhotoProvider>;
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
