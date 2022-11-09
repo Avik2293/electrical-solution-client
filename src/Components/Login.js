@@ -6,9 +6,12 @@ import { Link } from 'react-daisyui';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
+import useTitle from '../Hooks/useTitle';
 
 
 const Login = () => {
+    useTitle('Login')
+
     const [error, setError] = useState('');
 
     const [userEmail, setUserEmail] = useState('');

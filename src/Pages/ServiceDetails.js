@@ -4,8 +4,10 @@ import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import ServiceReviewCard from '../Components/ServiceReviewCard';
 import { AuthContext } from '../Context/AuthProvider';
+import useTitle from '../Hooks/useTitle';
 
 const ServiceDetails = () => {
+    useTitle('Service Details')
     const { title, description, ratings, img_url, price, _id } = useLoaderData();
 
     const { user } = useContext(AuthContext);

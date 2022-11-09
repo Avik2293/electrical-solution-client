@@ -4,8 +4,10 @@ import toast from 'react-hot-toast';
 
 import MyReviewsRow from '../Components/MyReviewsRow';
 import { AuthContext } from '../Context/AuthProvider';
+import useTitle from '../Hooks/useTitle';
 
 const MyReviews = () => {
+    useTitle('My Reviews')
     const { user } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
 
