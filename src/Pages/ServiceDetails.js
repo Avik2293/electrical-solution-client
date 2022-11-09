@@ -1,20 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import ServiceReviewCard from '../Components/ServiceReviewCard';
 import { AuthContext } from '../Context/AuthProvider';
 
 const ServiceDetails = () => {
     const { title, description, ratings, img_url, price, _id } = useLoaderData();
 
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     console.log(user);
+
+    const [serviceReview, setServiceReview] = useState([]);
 
     const addReview = event => {
         event.preventDefault();
         const reviewText = event.target.reviewText.value;
 
-        const review ={
+        const review = {
             serviceId: _id,
             serviceName: title,
             review: reviewText,
@@ -30,16 +33,22 @@ const ServiceDetails = () => {
             },
             body: JSON.stringify(review)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.acknowledged){
-                toast.success('Your review for this service has been added.');
-                event.target.reset();
-            }
-        })
-        .catch(err => console.error(err));
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success('Your review for this service has been added.');
+                    event.target.reset();
+                }
+            })
+            .catch(err => console.error(err));
     };
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/servicereviews?serviceId=${_id}`)
+            .then(res => res.json())
+            .then(data => setServiceReview(data))
+    }, [serviceReview])
 
     return (
         <div>
@@ -54,18 +63,24 @@ const ServiceDetails = () => {
                 <h2 className='text-3xl font-bold'>{title}</h2>
                 <h4 className='text-2xl'>{description}</h4>
             </div>
-            <div className='border-4 border-teal-600 bg-sky-100 rounded-xl m-2 p-3'>
-                <div>
-
-                </div>
+            <div className='border-4 border-teal-600 bg-sky-100 rounded-xl m-2 p-1 grid grid-cols-2 gap-1'>
+                {
+                    serviceReview.length ? 
+                     <div>
+                        {
+                            serviceReview.map(sr => <ServiceReviewCard key={sr._id} sr={sr}></ServiceReviewCard>)
+                        }
+                    </div> :
+                    <h2 className='font-bold text-xl'>No Reviews For this product</h2>
+                }
                 <div>
                     {
                         user?.uid ?
-                        <form onSubmit={addReview}>
-                            <textarea name='reviewText'className="textarea textarea-info" placeholder="Your Review for this service" required ></textarea>
-                            <button className='btn' type="submit">Add Review</button>
-                        </form> : 
-                        <h2 className='font-bold'>Please login to add a review.</h2>
+                            <form onSubmit={addReview} className='flex flex-col p-2'>
+                                <textarea name='reviewText' className="textarea textarea-info" placeholder="Your Review for this service" required ></textarea>
+                                <button className='btn m-2' type="submit">Add Review</button>
+                            </form> :
+                            <h2 className='font-bold'>Please login to add a review.</h2>
                     }
                 </div>
             </div>

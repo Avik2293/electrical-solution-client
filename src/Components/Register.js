@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
@@ -28,7 +27,6 @@ const Register = () => {
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
-                // toast.success('Please, Verify your email address.');
             })
             .catch(e => {
                 console.error(e);
