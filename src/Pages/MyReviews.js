@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
+
 import toast from 'react-hot-toast';
+
 import MyReviewsRow from '../Components/MyReviewsRow';
 import { AuthContext } from '../Context/AuthProvider';
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
-    const [modal, setModal] = useState(false);
+
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/myreviews?reveiwerEmail=${user?.email}`)
@@ -32,61 +35,28 @@ const MyReviews = () => {
         }
     };
 
-    // {
-    //     modal &&
-    //         <div>
-    //             < input type="checkbox" id="my-modal" className="modal-toggle" />
-    //             <div className="modal">
-    //                 <div className="modal-box">
-    //                     <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-    //                     <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-    //                     <div className="modal-action">
-    //                         <label htmlFor="my-modal" className="btn">Yay!</label>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div >
-    // }
 
     const handleUpdate = id => {
-        setModal(true);
-        
 
-        // <div>
-        //     < input type="checkbox" id="my-modal" className="modal-toggle" />
-        // <div className="modal">
-        //     <div className="modal-box">
-        //         <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-        //         <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-        //         <div className="modal-action">
-        //             <label htmlFor="my-modal" className="btn">Yay!</label>
-        //         </div>
-        //     </div>
-        // </div>
-        // </div>
+            fetch(`http://localhost:5000/reviews/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ review: 'sdfghjkl' })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.acknowledged) {
+                        const remaining = myReviews.filter(rv => rv._id !== id);
+                        const updating = myReviews.find(rv => rv._id === id);
+                        updating.review = 'sdfghjkl'
 
-
-
-
-        // fetch(`http://localhost:5000/reviews/${id}`, {
-        //     method: 'PATCH', 
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify({review: 'sdfghjkl'})
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data);
-        //     if(data.modifiedCount > 0) {
-        //         const remaining = myReviews.filter(rv => rv._id !== id);
-        //         const updating = myReviews.find(rv => rv._id === id);
-        //         updating.review = 'sdfghjkl'
-
-        //         const newReviews = [updating, ...remaining];
-        //         setMyReviews(newReviews);
-        //     }
-        // })
+                        const newReviews = [updating, ...remaining];
+                        setMyReviews(newReviews);
+                    }
+                })
     };
 
     return (

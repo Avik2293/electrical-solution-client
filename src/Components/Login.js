@@ -39,7 +39,6 @@ const Login = () => {
                 form.reset();
                 setError('');
                 navigate(from, { replace: true });
-                // toast.error('Your email is not verified. Please verify your email address.');
             })
             .catch(e => {
                 console.error(e);

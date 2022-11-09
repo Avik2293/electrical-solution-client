@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ServiceReviewCard from '../Components/ServiceReviewCard';
 import { AuthContext } from '../Context/AuthProvider';
 
@@ -80,7 +80,10 @@ const ServiceDetails = () => {
                                 <textarea name='reviewText' className="textarea textarea-info" placeholder="Your Review for this service" required ></textarea>
                                 <button className='btn m-2' type="submit">Add Review</button>
                             </form> :
+                            <>
                             <h2 className='font-bold'>Please login to add a review.</h2>
+                            <Link to='/login'><button className='btn'>Login</button></Link>
+                            </>
                     }
                 </div>
             </div>
