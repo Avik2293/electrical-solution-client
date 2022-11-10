@@ -28,7 +28,7 @@ const ServiceDetails = () => {
             reveiwerPhoto: user?.photoURL
         };
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://electrical-solution-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -49,7 +49,7 @@ const ServiceDetails = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/servicereviews?serviceId=${_id}`)
+        fetch(`https://electrical-solution-server.vercel.app/servicereviews?serviceId=${_id}`)
             .then(res => res.json())
             .then(data => setServiceReview(data))
     }, [])

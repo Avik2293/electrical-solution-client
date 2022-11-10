@@ -10,7 +10,7 @@ const MyReviews = () => {
     const [myReviews, setMyReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?reveiwerEmail=${user?.email}`)
+        fetch(`https://electrical-solution-server.vercel.app/myreviews?reveiwerEmail=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyReviews(data))
     }, [user?.email])
@@ -18,7 +18,7 @@ const MyReviews = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Want to delete this review ?');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://electrical-solution-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -36,25 +36,25 @@ const MyReviews = () => {
 
     const handleUpdate = id => {
 
-            fetch(`http://localhost:5000/reviews/${id}`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({ review: 'sdfghjkl' })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.acknowledged) {
-                        const remaining = myReviews.filter(rv => rv._id !== id);
-                        const updating = myReviews.find(rv => rv._id === id);
-                        updating.review = 'sdfghjkl'
+        fetch(`https://electrical-solution-server.vercel.app/reviews/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ review: 'sdfghjkl' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    const remaining = myReviews.filter(rv => rv._id !== id);
+                    const updating = myReviews.find(rv => rv._id === id);
+                    updating.review = 'sdfghjkl'
 
-                        const newReviews = [updating, ...remaining];
-                        setMyReviews(newReviews);
-                    }
-                })
+                    const newReviews = [updating, ...remaining];
+                    setMyReviews(newReviews);
+                }
+            })
     };
 
     return (

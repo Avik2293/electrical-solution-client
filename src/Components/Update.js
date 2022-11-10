@@ -12,7 +12,7 @@ const Update = () => {
         event.preventDefault();
         const reviewText = event.target.reviewText.value;
 
-        fetch(`http://localhost:5000/reviews/${storedReview._id}`, {
+        fetch(`https://electrical-solution-server.vercel.app/reviews/${storedReview._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

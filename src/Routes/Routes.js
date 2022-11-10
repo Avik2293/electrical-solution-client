@@ -20,18 +20,18 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000'),
+                loader: () => fetch('https://electrical-solution-server.vercel.app'),
                 element: <Home></Home>
             },
             {
                 path: '/services',
-                loader: () => fetch('http://localhost:5000/services'),
+                loader: () => fetch('https://electrical-solution-server.vercel.app/services'),
                 element: <Services></Services>
             },
             {
                 path: '/service/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://electrical-solution-server.vercel.app/service/${params.id}`)
             },
             {
                 path: '/myreviews',
@@ -56,7 +56,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <Update></Update>,
-                loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader: ({ params }) => fetch(`https://electrical-solution-server.vercel.app/reviews/${params.id}`)
             },
             // {
             //     path: '/checkout/:id',
