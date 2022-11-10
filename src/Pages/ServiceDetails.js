@@ -38,6 +38,8 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                const newReview = [review, ...serviceReview];
+                setServiceReview(newReview)
                 if (data.acknowledged) {
                     toast.success('Your review for this service has been added.');
                     event.target.reset();
@@ -50,7 +52,7 @@ const ServiceDetails = () => {
         fetch(`http://localhost:5000/servicereviews?serviceId=${_id}`)
             .then(res => res.json())
             .then(data => setServiceReview(data))
-    }, [serviceReview])
+    }, [])
 
     return (
         <div>
@@ -67,13 +69,13 @@ const ServiceDetails = () => {
             </div>
             <div className='border-4 border-teal-600 bg-sky-100 rounded-xl m-2 p-1 grid grid-cols-2 gap-1'>
                 {
-                    serviceReview.length ? 
-                     <div>
-                        {
-                            serviceReview.map(sr => <ServiceReviewCard key={sr._id} sr={sr}></ServiceReviewCard>)
-                        }
-                    </div> :
-                    <h2 className='font-bold text-xl'>No Reviews For this product</h2>
+                    serviceReview.length ?
+                        <div>
+                            {
+                                serviceReview.map(sr => <ServiceReviewCard key={sr._id} sr={sr}></ServiceReviewCard>)
+                            }
+                        </div> :
+                        <h2 className='font-bold text-xl'>No Reviews For this product</h2>
                 }
                 <div>
                     {
@@ -83,8 +85,8 @@ const ServiceDetails = () => {
                                 <button className='btn m-2' type="submit">Add Review</button>
                             </form> :
                             <>
-                            <h2 className='font-bold'>Please login to add a review.</h2>
-                            <Link to='/login'><button className='btn'>Login</button></Link>
+                                <h2 className='font-bold'>Please login to add a review.</h2>
+                                <Link to='/login'><button className='btn'>Login</button></Link>
                             </>
                     }
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext } from 'react';
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import app from '../Firebase/firebase.config';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
     const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, provider);
     };
 
-    const createUser =(email, password) => {
+    const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
@@ -28,7 +28,7 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     };
 
-    const passwordResetEmail =(userEmail) => {
+    const passwordResetEmail = (userEmail) => {
         return sendPasswordResetEmail(auth, userEmail);
     };
 
@@ -41,7 +41,7 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     };
 
-    useEffect( () => {
+    useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false);
@@ -52,7 +52,7 @@ const AuthProvider = ({children}) => {
         }
     }, [])
 
-    const authInfo = {user, setUser, providerLogin, signIn, createUser, logOut, loading, setLoading, updateUserProfile, passwordResetEmail};
+    const authInfo = { user, setUser, providerLogin, signIn, createUser, logOut, loading, setLoading, updateUserProfile, passwordResetEmail };
 
     return (
         <AuthContext.Provider value={authInfo}>

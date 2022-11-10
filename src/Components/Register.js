@@ -9,7 +9,7 @@ const Register = () => {
     useTitle('Register')
     const [error, setError] = useState('');
 
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile, loading } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -48,7 +48,11 @@ const Register = () => {
 
     return (
         <div className='flex justify-center m-2'>
-            <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
+            {
+                loading ?
+                <div className="radial-progress bg-white" style={{ "--value": 70 }}>70%</div>
+                :
+                <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
                 <h1 className="text-2xl font-bold text-center">Register</h1>
                 <form onSubmit={handleSubmit} novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
@@ -74,6 +78,8 @@ const Register = () => {
                     <Link rel="noopener noreferrer" to="/login" className="underline text-gray-100"> Login</Link>
                 </p>
             </div>
+            }
+            
         </div>
     );
 };

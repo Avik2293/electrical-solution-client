@@ -16,7 +16,7 @@ const Login = () => {
 
     const [userEmail, setUserEmail] = useState('');
 
-    const { setUser, providerLogin, signIn, setLoading, passwordResetEmail } = useContext(AuthContext);
+    const { setUser, providerLogin, signIn, setLoading, passwordResetEmail, loading } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -85,7 +85,11 @@ const Login = () => {
 
     return (
         <div className='flex justify-center m-2'>
-            <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
+            {
+                loading ?
+                <div className="radial-progress bg-white" style={{ "--value": 70 }}>70%</div>
+                :
+                <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
                 <h1 className="text-2xl font-bold text-center">Login</h1>
                 <p>{error}</p>
                 <form onSubmit={handleLogIn} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
@@ -116,6 +120,7 @@ const Login = () => {
                 </div>
                 <p className="text-xs text-center sm:px-6 text-gray-400"> Don't have an account?<Link onClick={() => navigate('/register')} className="underline text-gray-100 cursor-pointer"> Register</Link></p>
             </div>
+            }
         </div>
     );
 };
