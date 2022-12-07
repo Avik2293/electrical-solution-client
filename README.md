@@ -2,12 +2,7 @@
 
 # Live Site Link: [https://electrical-solution-auth.web.app/](https://electrical-solution-auth.web.app/).
 
-# Project Github Link: [https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-Avik2293](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-Avik2293).
-
-# Server Github Link: [https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-Avik2293](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-Avik2293).
-
-
-## This Project has been Created for Programming Hero Web Development Course, Assignment No. 11.
+# Server Github Link: [https://github.com/Avik2293/electrical-solution-server](https://github.com/Avik2293/electrical-solution-server).
 
 ## Some details about The Project:
 
@@ -23,7 +18,7 @@
     2. Google
 * You can register with photoURL and name.
 * In service detail page, reviews you can see according to latest.
-* You can click on servic card to see in full screen.
+* You can click on service card to see in full screen.
 * Whole site used Link tag and nested routing for SPA user interface. 
 * _redirects file used for reload problem.
 * Error page and Error in login page 
