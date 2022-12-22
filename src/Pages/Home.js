@@ -21,7 +21,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 my-3 mx-28">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 my-3 mx-3 lg:mx-28">
                 {
                     services.map(service => <ServiceCard service={service} key={service._id}></ServiceCard>)
                 }
