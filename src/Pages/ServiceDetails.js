@@ -52,7 +52,7 @@ const ServiceDetails = () => {
         fetch(`https://electrical-solution-server.vercel.app/servicereviews?serviceId=${_id}`)
             .then(res => res.json())
             .then(data => setServiceReview(data))
-    }, [])
+    }, [_id])
 
     return (
         <div>

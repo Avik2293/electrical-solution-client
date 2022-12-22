@@ -21,15 +21,15 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 m-2">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 my-3 mx-28">
                 {
-                    services.map(service => <ServiceCard service={service} key={service.id}></ServiceCard>)
+                    services.map(service => <ServiceCard service={service} key={service._id}></ServiceCard>)
                 }
             </div>
             <Link to='/services'><button className='btn m-2'>See All</button></Link>
-            <div>
+            <div className='grid justify-items-center'>
                 <h2 className='text-xl font-bold bg-gray-400 p-2'>Some of My Works</h2>
-                <div className="carousel lg:h-screen py-3 w-full">
+                <div className="carousel lg:h-96 w-4/5 py-3">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img src="https://4.imimg.com/data4/KW/BI/MY-2944238/pvc-insulated-wires-500x500.png" className='w-full' alt='' />
                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -91,16 +91,15 @@ const Home = () => {
             <div>
                 <h2 className='font-bold text-xl bg-stone-400 m-2'>My Previous Work Partner Company</h2>
                 <div className='grid grid-cols-3 lg:grid-cols-9 gap-3 border-4 border-slate-500 bg-lime-200 m-2'>
-                    <img src="https://www.mke.com.bd/pub/media/seller_image/default/MK_Logo_Square.jpg" alt="" srcset="" />
-                    <img src="https://bangladeshpost.net/webroot/uploads/featureimage/2020-06/5edfa7040846d.jpg" alt="" srcset="" />
-                    <img src="https://static-01.daraz.com.bd/p/1a91bd28755972401437d426b477223c.jpg" alt="" srcset="" />
-                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQG4r7kb1TyDOQ/company-logo_200_200/0/1573373367272?e=2147483647&v=beta&t=ZN_fuBz9uQUqJ5bRzKmJRLQlBo_7NTNfp6QV6M2zD84" alt="" srcset="" />
-                    <img src="https://mepgroupbd.com/wp-content/uploads/2022/02/MEP-Group-Logo.png" alt="" srcset="" />
-                    <img src="https://businessinspection.com.bd/wp-content/uploads/2022/05/akij.jpg" alt="" srcset="" />
-                    <img src="https://img.freepik.com/free-vector/house-shape-logo-template_1107-29.jpg" alt="" srcset="" />
-                    <img src="https://www.tradebangla.com.bd/images/business/profile/2017/11/28/70281117054248.png" alt="" srcset="" />
-                    <img src="https://www.careerz360.com/cdn.careerz360.com/Content/UserData/empr/df6d8baa-dad3-4155-9592-bfb386740bc7/profile_pics/thumbnail_30650270-3242-475d-bf62-400da06112ad.jpg" alt="" srcset="" />
-                    <img src="" alt="" srcset="" />
+                    <img className='h-28' src="https://www.mke.com.bd/pub/media/seller_image/default/MK_Logo_Square.jpg" alt=""/>
+                    <img className='h-28' src="https://bangladeshpost.net/webroot/uploads/featureimage/2020-06/5edfa7040846d.jpg" alt=""/>
+                    <img className='h-28' src="https://static-01.daraz.com.bd/p/1a91bd28755972401437d426b477223c.jpg" alt=""/>
+                    <img className='h-28' src="https://media-exp1.licdn.com/dms/image/C510BAQG4r7kb1TyDOQ/company-logo_200_200/0/1573373367272?e=2147483647&v=beta&t=ZN_fuBz9uQUqJ5bRzKmJRLQlBo_7NTNfp6QV6M2zD84" alt=""/>
+                    <img className='h-28' src="https://mepgroupbd.com/wp-content/uploads/2022/02/MEP-Group-Logo.png" alt=""/>
+                    <img className='h-28' src="https://businessinspection.com.bd/wp-content/uploads/2022/05/akij.jpg" alt=""/>
+                    <img className='h-28' src="https://img.freepik.com/free-vector/house-shape-logo-template_1107-29.jpg" alt=""/>
+                    <img className='h-28' src="https://www.tradebangla.com.bd/images/business/profile/2017/11/28/70281117054248.png" alt=""/>
+                    <img className='h-28' src="https://www.careerz360.com/cdn.careerz360.com/Content/UserData/empr/df6d8baa-dad3-4155-9592-bfb386740bc7/profile_pics/thumbnail_30650270-3242-475d-bf62-400da06112ad.jpg" alt=""/>
                 </div>
             </div>
         </div>
