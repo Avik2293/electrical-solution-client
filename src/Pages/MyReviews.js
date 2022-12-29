@@ -62,8 +62,8 @@ const MyReviews = () => {
             {
                 myReviews.length ?
                     <>
-                        <h2 className="text-5xl m-2 p-2 bg-rose-200">You have {myReviews.length} Reviews.</h2>
-                        <div className="overflow-x-auto w-full m-2 p-1">
+                        <h2 className="text-5xl m-2 p-2 font-bold">You have {myReviews.length} Reviews.</h2>
+                        <div className="overflow-x-auto w-full m-2 p-1 mx-auto max-w-screen-xl">
                             <table className="table w-full">
                                 <thead>
                                     <tr>

@@ -41,16 +41,16 @@ const AddService = () => {
     }
 
     return (
-        <div className='bg-black m-2'>
+        <div className='mx-auto p-5 max-w-screen-xl'>
             <form onSubmit={handleAddService}>
-                <h2 className="text-4xl text-white p-2">Add a Service</h2>
+                <h2 className="text-4xl p-4 mb-2 font-semibold">Add a Service</h2>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <input name="title" type="text" placeholder="Service title" className="input input-ghost w-full  input-bordered" required />
                     <input name="img_url" type="text" placeholder="Service image url" className="input input-ghost w-full  input-bordered" required />
                     <input name="price" type="text" placeholder="Service Charge" className="input input-ghost w-full  input-bordered" required />
                     <input name="ratings" type="text" placeholder="Ratings" className="input input-ghost w-full  input-bordered" required />
                 </div>
-                <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="Service Description" required></textarea>
+                <textarea name="description" className="textarea textarea-bordered h-24 w-full my-4" placeholder="Service Description" required></textarea>
 
                 <input className='btn m-2' type="submit" value="Add Service" />
             </form>
